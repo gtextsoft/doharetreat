@@ -74,7 +74,7 @@ function App() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-8 sm:mb-12 text-base sm:text-lg">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
-                  <span>April 22-26, 2025</span>
+                  <span>April 22-27, 2025</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
@@ -86,8 +86,8 @@ function App() {
                 <div className="text-left space-y-4 sm:space-y-6 mb-6 sm:mb-8">
                   <p className="text-xl sm:text-2xl font-light mb-2 sm:mb-4">Imagine this instead:</p>
                   <div className="space-y-3 sm:space-y-4 pl-4 sm:pl-6 border-l-2 border-yellow-500">
-                    <p className="text-base sm:text-lg">5 mornings waking up in a premium Airbnb somewhere in Doha.</p>
-                    <p className="text-base sm:text-lg">5 mornings and evenings sharing business and leadership stories with founders who've scaled across the globe</p>
+                    <p className="text-base sm:text-lg">6 mornings waking up in a premium Airbnb somewhere in Doha.</p>
+                    <p className="text-base sm:text-lg">6 mornings and evenings sharing business and leadership stories with founders who've scaled across the globe</p>
                     <p className="text-base sm:text-lg">proven framework to bypass growth plateaus without sacrificing your health or relationships.</p>
                   </div>
                 </div>
