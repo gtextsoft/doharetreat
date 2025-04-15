@@ -334,7 +334,7 @@ function App() {
         <section className="py-24 bg-purple-950">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8 text-center">Too busy to take 5 days off?</h2>
+              <h2 className="text-3xl font-bold mb-8 text-center">Too busy to take 6 days off?</h2>
               <p className="text-xl mb-8 text-center">This is exactly why you should be the first person at this retreat because you need the lessons to build a structure that operates independently of you</p>
               <p className="text-xl mb-12 text-center text-yellow-500">So now, you have nothing holding you back</p>
               
@@ -350,7 +350,7 @@ function App() {
                 </div>
                 <div className="bg-purple-900/50 p-8 rounded-xl border border-purple-800">
                   <p className="font-semibold mb-4 text-xl">Option C:</p>
-                  <p className="text-lg mb-4">Spend April 22–26 in Doha with Africa's most influential CEOs. Return with:</p>
+                  <p className="text-lg mb-4">Spend April 22–27 in Doha with Africa's most influential CEOs. Return with:</p>
                   <ul className="space-y-3 pl-6">
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-yellow-500 flex-shrink-0" />
@@ -375,7 +375,7 @@ function App() {
         <section className="py-24 bg-purple-900">
           <div className="container mx-auto px-6 text-center">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-12">Ready to take the much needed break in preparation for a greater and better you on the 22nd-26th of April?</h2>
+              <h2 className="text-4xl font-bold mb-12">Ready to take the much needed break in preparation for a greater and better you on the 22nd-27th of April?</h2>
               <div className="bg-purple-950 p-8 rounded-xl mb-12 border border-purple-800">
                 <ol className="text-left space-y-6 text-lg">
                   <li className="flex items-center gap-4">
