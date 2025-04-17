@@ -4,6 +4,7 @@ import { useState } from 'react';
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showHostInfo, setShowHostInfo] = useState(false);
+  const [showUSD, setShowUSD] = useState(true);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -293,39 +294,160 @@ function App() {
         </section>
 
         {/* Investment Section */}
-        <section id="investment" className="py-24 bg-purple-900">
-          <div className="container mx-auto px-6">
+        <section id="investment" className="py-16 sm:py-20 md:py-24 bg-purple-900">
+          <div className="container mx-auto px-4 sm:px-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-16">Investment</h2>
             <div className="max-w-4xl mx-auto">
-              <div className="text-center space-y-6 mb-16">
-                <p className="text-2xl">If you had the opportunity to invest in yourself, go on a vacation, take a productive break from the daily bussle, and immerse yourself in a room filled with global business leaders, while gaining access to my 10-Figure Dollar Empire Strategy, how much do you think that would be worth?</p>
-                <p className="text-2xl">Surely, $5,000 wouldn't be too much for such a life-changing experience.</p>
-                <p className="text-2xl text-yellow-500">But here's the good news... you won't even pay half of that!</p>
+              <div className="bg-purple-950/50 p-6 sm:p-8 rounded-xl border border-purple-800">
+                <div className="flex flex-col items-center mb-8">
+                  <h3 className="text-2xl sm:text-3xl font-semibold text-yellow-500 mb-4">Choose Your Currency</h3>
+                  <div className="flex gap-4">
+                    <button 
+                      className={`px-6 py-2 rounded-full font-semibold transition-all ${showUSD ? 'bg-yellow-500 text-purple-900' : 'bg-purple-800 text-white'}`}
+                      onClick={() => setShowUSD(true)}
+                    >
+                      USD
+                    </button>
+                    <button 
+                      className={`px-6 py-2 rounded-full font-semibold transition-all ${!showUSD ? 'bg-yellow-500 text-purple-900' : 'bg-purple-800 text-white'}`}
+                      onClick={() => setShowUSD(false)}
+                    >
+                      NGN
+                    </button>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="flex flex-col items-center p-6 bg-purple-900/50 rounded-xl border border-yellow-500">
+                    <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Early Bird Package</h4>
+                    <div className="text-3xl sm:text-4xl font-bold mb-2">
+                      {showUSD ? '$2,000' : '₦3,000,000'}
+                    </div>
+                    <p className="text-sm text-white/80 mb-6">
+                    </p>
+                    <ul className="space-y-3 mb-8">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Access to All Sessions & Hall Activities</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Tour of Doha</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Boat Cruise Experience
+</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Training Materials
+</span>
+                      </li>
+                    </ul>
+                    <a 
+                      href={showUSD ? "https://pay.gtextglobal.com/doha-retreat/" : "https://paystack.com/pay/nx-zy2mr4a"} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-3 px-8 rounded-full transition-all inline-block text-center"
+                    >
+                      Reserve Your Spot
+                    </a>
+                  </div>
+
+                  <div className="flex flex-col items-center p-6 bg-purple-900/50 rounded-xl border border-yellow-500">
+                    <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Premium Package</h4>
+                    <div className="text-3xl sm:text-4xl font-bold mb-2">
+                      {showUSD ? '$3,000' : '₦4,500,000'}
+                    </div>
+                    <p className="text-sm text-white/80 mb-6">
+                    </p>
+                    <ul className="space-y-3 mb-8">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Access to All Sessions & Hall Activities</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Tour of Doha</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Boat Cruise Experience
+
+</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Training Materials
+</span>
+                      </li>
+                    </ul>
+                    <a 
+                      href={showUSD ? "https://pay.gtextglobal.com/doha-retreat/" : "https://paystack.com/pay/3adggyie03"} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-3 px-8 rounded-full transition-all inline-block text-center"
+                    >
+                      Reserve Your Spot
+                    </a>
+                  </div>
+
+                  <div className="text-center text-sm text-white/80 md:col-span-2">
+                    <p className="mt-2">Please note: Hotel accommodation and flight tickets are not included in the registration fee and should be arranged independently.</p>
+                  </div>
+                </div>
               </div>
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-purple-950 p-8 rounded-xl text-center relative overflow-hidden group hover:scale-105 transition-transform duration-300 border border-purple-800">
-                  <div className="absolute inset-0 bg-gradient-to-b from-yellow-500/10 to-transparent"></div>
-                  <h3 className="text-2xl font-semibold mb-4">Early Bird</h3>
-                  <p className="text-5xl font-bold mb-4">$1,500</p>
-                  <p className="mb-4">First 100 registrants</p>
-                  <p className="text-green-400 mb-6 text-lg">Save $500!</p>
-                  <button className="relative bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-4 px-8 rounded-full transition-all w-full" onClick={() => window.location.href = 'https://pay.gtextglobal.com/doha-retreat/'}>Claim Now</button>
+            </div>
+          </div>
+        </section>
+
+        {/* What Your Registration Fee Covers Section */}
+        <section className="py-16 sm:py-20 md:py-24 bg-purple-950">
+          <div className="container mx-auto px-4 sm:px-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-16">What Your Registration Fee Covers</h2>
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-purple-900/50 p-6 sm:p-8 rounded-xl border border-purple-800">
+                <p className="text-lg mb-8">Your registration fee gives you access to a complete, immersive experience designed to help you unwind, reignite, and scale:</p>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-xl font-semibold text-yellow-500 mb-2">Access to All Sessions & Hall Activities</h3>
+                      <p className="text-white/90">Full participation in every transformative session with our lineup of powerful speakers.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-xl font-semibold text-yellow-500 mb-2">Tour of Doha</h3>
+                      <p className="text-white/90">Explore the beauty of Doha with guided visits to some of the city's most fascinating and inspiring spots.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-xl font-semibold text-yellow-500 mb-2">Boat Cruise Experience</h3>
+                      <p className="text-white/90">Enjoy a relaxing and scenic boat cruise as you network and connect with fellow entrepreneurs and coaches.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-xl font-semibold text-yellow-500 mb-2">Training Materials</h3>
+                      <p className="text-white/90">Get high-quality resources and materials to help you implement what you learn long after the retreat ends.</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-yellow-500 p-8 rounded-xl text-center transform scale-105 relative overflow-hidden group hover:scale-110 transition-transform duration-300">
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent"></div>
-                  <h3 className="text-2xl font-semibold mb-4 text-purple-900">Individual</h3>
-                  <p className="text-5xl font-bold mb-4 text-purple-900">$2,000</p>
-                  <p className="mb-6 text-purple-900">Premium accommodation and meals included</p>
-                  <button className="relative bg-purple-900 hover:bg-purple-800 text-white font-bold py-4 px-8 rounded-full transition-all w-full" onClick={() => window.location.href = 'https://pay.gtextglobal.com/doha-retreat/'}>Register Now</button>
-                </div>
-                <div className="bg-purple-950 p-8 rounded-xl text-center relative overflow-hidden group hover:scale-105 transition-transform duration-300 border border-purple-800">
-                  <div className="absolute inset-0 bg-gradient-to-b from-yellow-500/10 to-transparent"></div>
-                  <h3 className="text-2xl font-semibold mb-4">Couples</h3>
-                  <p className="text-5xl font-bold mb-4">$3,000</p>
-                  <p className="mb-6">Transform together</p>
-                  <button className="relative bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-4 px-8 rounded-full transition-all w-full" onClick={() => window.location.href = 'https://pay.gtextglobal.com/doha-retreat/'}>Register Together</button>
+                
+                <div className="mt-8 p-4 bg-purple-800/50 rounded-lg border border-purple-700">
+                  <p className="text-white/90 italic">Please note: Hotel accommodation and flight tickets are not included in the registration fee and should be arranged independently.</p>
                 </div>
               </div>
-              <p className="text-center text-xl mt-12 text-yellow-500">Thousands of people see this everyday and in no time, the spots will be filled up</p>
             </div>
           </div>
         </section>
@@ -393,7 +515,14 @@ function App() {
                 </ol>
               </div>
               <button className="bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-6 px-12 rounded-full text-xl transition-all mb-12 transform hover:scale-105">
-                CLAIM MY SEAT BEFORE PRICES INCREASE
+                <a 
+                  href={showUSD ? "https://pay.gtextglobal.com/doha-retreat/" : "https://paystack.com/pay/nx-zy2mr4a"} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  CLAIM MY SEAT BEFORE PRICES INCREASE
+                </a>
               </button>
               <p className="text-xl font-semibold text-yellow-500">No bullet points. No fluff. Just the unapologetic truth about what it takes to lead better in 2025.</p>
             </div>
@@ -527,7 +656,8 @@ function App() {
               <div>
                 <h3 className="text-xl font-bold mb-4 text-yellow-500">Contact</h3>
                 <p className="text-purple-300 mb-2">Email: products@stephenakintayo.com</p>
-                <p className="text-purple-300 mb-2">Phone: 08155555616</p>
+                <p className="text-purple-300 mb-2">Phone: (+234) 815 5555 616</p>
+                <p className="text-purple-300 mb-2">Phone: (+234) 816 7901 719</p>
                 {/* <p className="text-purple-300">Address: Luxury Resort, Doha, Qatar</p> */}
               </div>
               <div>
