@@ -75,7 +75,7 @@ function App() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-8 sm:mb-12 text-base sm:text-lg">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
-                  <span>April 22-27, 2025</span>
+                  <span>April 22-28, 2025</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
@@ -87,8 +87,8 @@ function App() {
                 <div className="text-left space-y-4 sm:space-y-6 mb-6 sm:mb-8">
                   <p className="text-xl sm:text-2xl font-light mb-2 sm:mb-4">Imagine this instead:</p>
                   <div className="space-y-3 sm:space-y-4 pl-4 sm:pl-6 border-l-2 border-yellow-500">
-                    <p className="text-base sm:text-lg">6 mornings waking up in a premium Airbnb somewhere in Doha.</p>
-                    <p className="text-base sm:text-lg">6 mornings and evenings sharing business and leadership stories with founders who've scaled across the globe</p>
+                    <p className="text-base sm:text-lg">7 mornings waking up in a premium Airbnb somewhere in Doha.</p>
+                    <p className="text-base sm:text-lg">7 mornings and evenings sharing business and leadership stories with founders who've scaled across the globe</p>
                     <p className="text-base sm:text-lg">proven framework to bypass growth plateaus without sacrificing your health or relationships.</p>
                   </div>
                 </div>
@@ -472,7 +472,7 @@ function App() {
                 </div>
                 <div className="bg-purple-900/50 p-8 rounded-xl border border-purple-800">
                   <p className="font-semibold mb-4 text-xl">Option C:</p>
-                  <p className="text-lg mb-4">Spend April 22–27 in Doha with Africa's most influential CEOs. Return with:</p>
+                  <p className="text-lg mb-4">Spend April 22–28 in Doha with Africa's most influential CEOs. Return with:</p>
                   <ul className="space-y-3 pl-6">
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-yellow-500 flex-shrink-0" />
@@ -497,7 +497,7 @@ function App() {
         <section className="py-24 bg-purple-900">
           <div className="container mx-auto px-6 text-center">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-12">Ready to take the much needed break in preparation for a greater and better you on the 22nd-27th of April?</h2>
+              <h2 className="text-4xl font-bold mb-12">Ready to take the much needed break in preparation for a greater and better you on the 22nd-28th of April?</h2>
               <div className="bg-purple-950 p-8 rounded-xl mb-12 border border-purple-800">
                 <ol className="text-left space-y-6 text-lg">
                   <li className="flex items-center gap-4">
