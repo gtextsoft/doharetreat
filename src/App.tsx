@@ -321,14 +321,23 @@ function App() {
                   <div className="flex flex-col items-center p-6 bg-purple-900/50 rounded-xl border border-yellow-500">
                     <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Early Bird Package</h4>
                     <div className="text-3xl sm:text-4xl font-bold mb-2">
-                      {showUSD ? '$2,000' : '₦3,000,000'}
+                      {showUSD ? '$15,000' : '₦22,500,000'}
                     </div>
                     <p className="text-sm text-white/80 mb-6">
+                      Individual
                     </p>
                     <ul className="space-y-3 mb-8">
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-yellow-500" />
-                        <span>Access to All Sessions & Hall Activities</span>
+                        <span>Hotel Accommodation</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Food</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Conference Attendance</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-yellow-500" />
@@ -336,13 +345,11 @@ function App() {
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-yellow-500" />
-                        <span>Boat Cruise Experience
-</span>
+                        <span>Visa Assistance</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-yellow-500" />
-                        <span>Training Materials
-</span>
+                        <span>Training Materials</span>
                       </li>
                     </ul>
                     <a 
@@ -356,16 +363,25 @@ function App() {
                   </div>
 
                   <div className="flex flex-col items-center p-6 bg-purple-900/50 rounded-xl border border-yellow-500">
-                    <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Premium Package</h4>
+                    <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Early Bird Couple Package</h4>
                     <div className="text-3xl sm:text-4xl font-bold mb-2">
-                      {showUSD ? '$3,000' : '₦4,500,000'}
+                      {showUSD ? '$25,000' : '₦37,500,000'}
                     </div>
                     <p className="text-sm text-white/80 mb-6">
+                      For Couples
                     </p>
                     <ul className="space-y-3 mb-8">
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-yellow-500" />
-                        <span>Access to All Sessions & Hall Activities</span>
+                        <span>Hotel Accommodation</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Food</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Conference Attendance</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-yellow-500" />
@@ -373,14 +389,11 @@ function App() {
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-yellow-500" />
-                        <span>Boat Cruise Experience
-
-</span>
+                        <span>Visa Assistance</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-yellow-500" />
-                        <span>Training Materials
-</span>
+                        <span>Training Materials</span>
                       </li>
                     </ul>
                     <a 
@@ -393,9 +406,98 @@ function App() {
                     </a>
                   </div>
 
-                  <div className="text-center text-sm text-white/80 md:col-span-2">
-                    <p className="mt-2">Please note: Hotel accommodation and flight tickets are not included in the registration fee and should be arranged independently.</p>
+                  <div className="flex flex-col items-center p-6 bg-purple-900/50 rounded-xl border border-yellow-500">
+                    <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Late Bird Package</h4>
+                    <div className="text-3xl sm:text-4xl font-bold mb-2">
+                      {showUSD ? '$20,000' : '₦30,000,000'}
+                    </div>
+                    <p className="text-sm text-white/80 mb-6">
+                      Individual
+                    </p>
+                    <ul className="space-y-3 mb-8">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Hotel Accommodation</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Food</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Conference Attendance</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Tour of Doha</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Visa Assistance</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Training Materials</span>
+                      </li>
+                    </ul>
+                    <a 
+                      href={showUSD ? "https://pay.gtextglobal.com/doha-retreat/" : "https://paystack.com/pay/nx-zy2mr4a"} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-3 px-8 rounded-full transition-all inline-block text-center"
+                    >
+                      Reserve Your Spot
+                    </a>
                   </div>
+
+                  <div className="flex flex-col items-center p-6 bg-purple-900/50 rounded-xl border border-yellow-500">
+                    <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Late Bird Couple Package</h4>
+                    <div className="text-3xl sm:text-4xl font-bold mb-2">
+                      {showUSD ? '$30,000' : '₦45,000,000'}
+                    </div>
+                    <p className="text-sm text-white/80 mb-6">
+                      For Couples
+                    </p>
+                    <ul className="space-y-3 mb-8">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Hotel Accommodation</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Food</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Conference Attendance</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Tour of Doha</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Visa Assistance</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-yellow-500" />
+                        <span>Training Materials</span>
+                      </li>
+                    </ul>
+                    <a 
+                      href={showUSD ? "https://pay.gtextglobal.com/doha-retreat/" : "https://paystack.com/pay/3adggyie03"} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-3 px-8 rounded-full transition-all inline-block text-center"
+                    >
+                      Reserve Your Spot
+                    </a>
+                  </div>
+
+                  {/* <div className="text-center text-white/80 md:col-span-2 mt-6 p-4 bg-purple-800/50 rounded-lg border border-purple-700">
+                    <p className="font-semibold text-yellow-500 mb-2">All packages include:</p>
+                    <p>Hotel Accommodation, Food, Conference Attendance, Tour of Doha, Visa Assistance, and Training Materials.</p>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -414,7 +516,23 @@ function App() {
                   <div className="flex items-start gap-4">
                     <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="text-xl font-semibold text-yellow-500 mb-2">Access to All Sessions & Hall Activities</h3>
+                      <h3 className="text-xl font-semibold text-yellow-500 mb-2">Hotel Accommodation</h3>
+                      <p className="text-white/90">Comfortable and luxurious stay during the entire retreat period.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-xl font-semibold text-yellow-500 mb-2">Food</h3>
+                      <p className="text-white/90">All meals and refreshments throughout the retreat.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-xl font-semibold text-yellow-500 mb-2">Conference Attendance</h3>
                       <p className="text-white/90">Full participation in every transformative session with our lineup of powerful speakers.</p>
                     </div>
                   </div>
@@ -430,8 +548,8 @@ function App() {
                   <div className="flex items-start gap-4">
                     <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="text-xl font-semibold text-yellow-500 mb-2">Boat Cruise Experience</h3>
-                      <p className="text-white/90">Enjoy a relaxing and scenic boat cruise as you network and connect with fellow entrepreneurs and coaches.</p>
+                      <h3 className="text-xl font-semibold text-yellow-500 mb-2">Visa Assistance</h3>
+                      <p className="text-white/90">Support with visa application process to ensure smooth travel arrangements.</p>
                     </div>
                   </div>
                   
@@ -444,9 +562,9 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="mt-8 p-4 bg-purple-800/50 rounded-lg border border-purple-700">
-                  <p className="text-white/90 italic">Please note: Hotel accommodation and flight tickets are not included in the registration fee and should be arranged independently.</p>
-                </div>
+                {/* <div className="mt-8 p-4 bg-purple-800/50 rounded-lg border border-purple-700">
+                  <p className="text-white/90 italic">Note: Flight tickets are not included in the registration fee and should be arranged independently.</p>
+                </div> */}
               </div>
             </div>
           </div>
@@ -468,7 +586,7 @@ function App() {
                 </div>
                 <div className="bg-purple-900/50 p-8 rounded-xl border border-purple-800">
                   <p className="font-semibold mb-4 text-xl">Option B:</p>
-                  <p className="text-lg">Decide to register later only to see that the special offer has ended and you'd have to pay $2000</p>
+                  <p className="text-lg">Decide to register later only to see that the special offer has ended and you'd have to pay $20,000 instead of the early bird rate</p>
                 </div>
                 <div className="bg-purple-900/50 p-8 rounded-xl border border-purple-800">
                   <p className="font-semibold mb-4 text-xl">Option C:</p>
@@ -521,7 +639,7 @@ function App() {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  CLAIM MY SEAT BEFORE PRICES INCREASE
+                  SECURE YOUR SPOT TODAY
                 </a>
               </button>
               <p className="text-xl font-semibold text-yellow-500">No bullet points. No fluff. Just the unapologetic truth about what it takes to lead better in 2025.</p>
