@@ -553,6 +553,42 @@ function App() {
               <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
                 <img src="/images/Past 6.jpg" alt="Past Retreat 6" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
               </div>
+              {/* doha  past retreat images */}
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+                <img src="/images/DAHA HILL.jpg" alt="Past Retreat 6" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              </div>
+              
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+                <img src="/images/DOHA 2.jpg" alt="Past Retreat 6" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              </div>
+
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+                <img src="/images/BALADNA 4.jpg" alt="Past Retreat 6" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              </div>
+
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+                <img src="/images/BALA VIP.jpg" alt="Past Retreat 6" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              </div>
+
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+                <img src="/images/DOHA LUSAIL.jpg" alt="Past Retreat 6" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              </div>
+
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+                <img src="/images/DOHA GENERAL PICS.jpg" alt="Past Retreat 6" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              </div>
+
+              <div className='aspect-square rounded-lg overflow-hidden shadow-lg'>
+                <img src="/public/images/IMG_0562.jpg" alt="" className='w-full h-full object-cover hover:scale-105 transition-transform duration-300' />
+              </div>
+
+              <div className='aspect-square rounded-lg overflow-hidden shadow-lg'>
+                <img src="/public/images/BALADNA 5.jpg" alt="" className='w-full h-full object-cover hover:scale-105 transition-transform duration-300' />
+              </div>
+
+              <div className='aspect-square rounded-lg overflow-hidden shadow-lg'>
+                <img src="/public/images/IMG_2585.jpg" alt="" className='w-full h-full object-cover hover:scale-105 transition-transform duration-300' />
+              </div>
             </div>
             <p className="text-center mt-12 text-lg">Join the legacy of transformation at our next retreat in Doha</p>
           </div>
