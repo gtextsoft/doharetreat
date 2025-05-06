@@ -555,7 +555,7 @@ function App() {
               </div>
               {/* doha  past retreat images */}
               <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
-                <img src="/images/DAHA HILL.jpg" alt="Past Retreat 6" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <img src="/images/IMG_3215.jpg" alt="Past Retreat 6" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
               </div>
               
               <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
