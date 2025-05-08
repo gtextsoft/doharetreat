@@ -1,10 +1,26 @@
 import { Calendar, MapPin, Users, Brain, Rocket, Star, CheckCircle2, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showHostInfo, setShowHostInfo] = useState(false);
   const [showUSD, setShowUSD] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -17,47 +33,50 @@ function App() {
   return (
     <div className="min-h-screen bg-cover bg-center bg-fixed text-white relative" style={{ backgroundImage: "url('https://media.istockphoto.com/id/499517325/photo/a-man-speaking-at-a-business-conference.jpg?s=612x612&w=0&k=20&c=gWTTDs_Hl6AEGOunoQ2LsjrcTJkknf9G8BGqsywyEtE=')" }}>
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-800/90 to-purple-700/90"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/95 to-purple-800/95"></div>
       
       {/* Navigation Header */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-purple-950/90 backdrop-blur-sm border-b border-purple-800">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-purple-950/95 shadow-lg' : 'bg-transparent'} backdrop-blur-sm border-b border-purple-800/50`}>
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center py-4">
-            <a href="#home" className="text-xl font-bold text-yellow-500">Doha Leadership Retreat</a>
+            <a href="#home" className="text-xl font-bold text-yellow-500 flex items-center">
+              <span className="text-2xl tracking-tighter">Doha Leadership Retreat</span>
+            </a>
             
             {/* Mobile menu button */}
             <button 
-              className="md:hidden text-white"
+              className="md:hidden text-white p-2 rounded-md hover:bg-purple-800/30 transition-all"
               onClick={toggleMobileMenu}
+              aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-6">
-              <a href="#home" className="text-white hover:text-yellow-500 transition">Home</a>
-              <a href="#why-different" className="text-white hover:text-yellow-500 transition">Why Different</a>
-              <a href="#benefits" className="text-white hover:text-yellow-500 transition">Benefits</a>
-              <a href="#host" className="text-white hover:text-yellow-500 transition">Your Host</a>
-              <a href="#learn" className="text-white hover:text-yellow-500 transition">What You'll Learn</a>
-              <a href="#investment" className="text-white hover:text-yellow-500 transition">Investment</a>
-              <a href="#past-events" className="text-white hover:text-yellow-500 transition">Past Retreats</a>
-              <a href="#testimonials" className="text-white hover:text-yellow-500 transition">Testimonials</a>
+            <div className="hidden md:flex space-x-1 lg:space-x-2">
+              <a href="#home" className="px-3 py-2 text-white hover:text-yellow-500 transition">Home</a>
+              <a href="#why-different" className="px-3 py-2 text-white hover:text-yellow-500 transition">Why Different</a>
+              <a href="#benefits" className="px-3 py-2 text-white hover:text-yellow-500 transition">Benefits</a>
+              <a href="#host" className="px-3 py-2 text-white hover:text-yellow-500 transition">Your Host</a>
+              <a href="#learn" className="px-3 py-2 text-white hover:text-yellow-500 transition">What You'll Learn</a>
+              <a href="#investment" className="px-3 py-2 text-white hover:text-yellow-500 transition">Investment</a>
+              <a href="#past-events" className="px-3 py-2 text-white hover:text-yellow-500 transition">Past Retreats</a>
+              <a href="#testimonials" className="px-3 py-2 text-white hover:text-yellow-500 transition">Testimonials</a>
             </div>
           </div>
 
           {/* Mobile menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-purple-800">
-              <div className="flex flex-col space-y-4">
-                <a href="#home" className="text-white hover:text-yellow-500 transition">Home</a>
-                <a href="#why-different" className="text-white hover:text-yellow-500 transition">Why Different</a>
-                <a href="#benefits" className="text-white hover:text-yellow-500 transition">Benefits</a>
-                <a href="#host" className="text-white hover:text-yellow-500 transition">Your Host</a>
-                <a href="#learn" className="text-white hover:text-yellow-500 transition">What You'll Learn</a>
-                <a href="#investment" className="text-white hover:text-yellow-500 transition">Investment</a>
-                <a href="#past-events" className="text-white hover:text-yellow-500 transition">Past Retreats</a>
-                <a href="#testimonials" className="text-white hover:text-yellow-500 transition">Testimonials</a>
+            <div className="md:hidden py-4 border-t border-purple-800/30 animate-fadeIn">
+              <div className="flex flex-col space-y-2">
+                <a href="#home" className="px-4 py-2 rounded-md hover:bg-purple-800/30 text-white hover:text-yellow-500 transition">Home</a>
+                <a href="#why-different" className="px-4 py-2 rounded-md hover:bg-purple-800/30 text-white hover:text-yellow-500 transition">Why Different</a>
+                <a href="#benefits" className="px-4 py-2 rounded-md hover:bg-purple-800/30 text-white hover:text-yellow-500 transition">Benefits</a>
+                <a href="#host" className="px-4 py-2 rounded-md hover:bg-purple-800/30 text-white hover:text-yellow-500 transition">Your Host</a>
+                <a href="#learn" className="px-4 py-2 rounded-md hover:bg-purple-800/30 text-white hover:text-yellow-500 transition">What You'll Learn</a>
+                <a href="#investment" className="px-4 py-2 rounded-md hover:bg-purple-800/30 text-white hover:text-yellow-500 transition">Investment</a>
+                <a href="#past-events" className="px-4 py-2 rounded-md hover:bg-purple-800/30 text-white hover:text-yellow-500 transition">Past Retreats</a>
+                <a href="#testimonials" className="px-4 py-2 rounded-md hover:bg-purple-800/30 text-white hover:text-yellow-500 transition">Testimonials</a>
               </div>
             </div>
           )}
@@ -67,151 +86,266 @@ function App() {
       {/* Content container */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <header id="home" className="relative min-h-screen flex items-center justify-center pt-16 px-2 sm:px-4 md:px-6">
+        <header id="home" className="relative min-h-screen flex items-center justify-center pt-20 px-2 sm:px-4 md:px-6">
           <div className="container mx-auto px-3 sm:px-6 py-12 sm:py-16 md:py-20">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight">CEOs and Professionals Leadership Retreat Doha</h1>
-              <p className="text-xl sm:text-2xl md:text-3xl mb-8 sm:mb-12 text-yellow-500 font-light">Where Visionary Leaders Unwind, Network, and Reignite Their Legacy</p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-8 sm:mb-12 text-base sm:text-lg">
-                <div className="flex items-center gap-2">
+              <div className="mb-6 inline-block mx-auto">
+                <div className="w-24 h-1 bg-yellow-500 mx-auto mb-3"></div>
+                <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight">Doha CEO & Leadership Retreat</h1>
+                <div className="w-24 h-1 bg-yellow-500 mx-auto mt-3"></div>
+              </div>
+              <p className="text-xl sm:text-2xl md:text-3xl mb-10 sm:mb-12 text-yellow-500 font-light">June 12 – 17, 2025 | 6 Days of Reconnection, Renewal & Real Strategy</p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 mb-10 sm:mb-12 text-base sm:text-lg">
+                <div className="flex items-center gap-3 bg-purple-900/50 px-6 py-3 rounded-full backdrop-blur-sm border border-purple-700/50 shadow-lg">
                   <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
                   <span>June 12th-17th</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3 bg-purple-900/50 px-6 py-3 rounded-full backdrop-blur-sm border border-purple-700/50 shadow-lg">
                   <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
                   <span>Doha, Qatar</span>
                 </div>
               </div>
-              <div className="bg-purple-900/80 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded-2xl shadow-xl border border-purple-800">
-                <p className="text-lg sm:text-xl font-semibold mb-6 sm:mb-8 text-yellow-500">Let's be blunt: Working so hard and burning out isn't a badge of honor neither does grinding alone in your office guarantee results</p>
-                <div className="text-left space-y-4 sm:space-y-6 mb-6 sm:mb-8">
-                  <p className="text-xl sm:text-2xl font-light mb-2 sm:mb-4">Imagine this instead:</p>
-                  <div className="space-y-3 sm:space-y-4 pl-4 sm:pl-6 border-l-2 border-yellow-500">
-                    <p className="text-base sm:text-lg">6 mornings waking up in a premium Airbnb somewhere in Doha.</p>
-                    <p className="text-base sm:text-lg">6 mornings and evenings sharing business and leadership stories with founders who've scaled across the globe</p>
-                    <p className="text-base sm:text-lg">proven framework to bypass growth plateaus without sacrificing your health or relationships.</p>
+              <div className="bg-purple-900/70 backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-2xl shadow-xl border border-purple-700/50">
+                <p className="text-lg sm:text-xl font-semibold mb-8 sm:mb-10 text-yellow-500">Feeling Accomplished… Yet Deeply Stretched?</p>
+                <div className="text-left space-y-4 sm:space-y-6 mb-8 sm:mb-10">
+                  <p className="text-xl sm:text-2xl font-light mb-4 sm:mb-6">You've built, led, scaled.</p>
+                  <div className="space-y-4 sm:space-y-6 pl-6 sm:pl-8 border-l-2 border-yellow-500">
+                    <p className="text-base sm:text-lg leading-relaxed">But when was the last time you paused to breathe, reflect, and reimagine?</p>
+                    <p className="text-base sm:text-lg leading-relaxed">What if you could escape the noise, recharge in luxury, and reignite your vision...</p>
+                    <p className="text-base sm:text-lg leading-relaxed">Surrounded by leaders who understand your journey?</p>
                   </div>
                 </div>
-                <p className="text-base sm:text-lg leading-relaxed">This and more is what you'll get at Doha retreat 2025 curated by Dr. Stephen Akintayo, Africa's foremost investment coach – where sharpest minds escape the noise, meet up with fellow trailblazers, get practical and experiential strategies to scaling fast, business expansion and leadership while having fun and unwinding at it</p>
+                <p className="text-base sm:text-lg leading-relaxed mb-2">This is not another seminar. Not another luxury vacation. And certainly not another "busy" conference. This is where powerful conversations meet priceless clarity—in one of the most inspiring cities on earth.</p>
+                <a 
+                  href="#investment" 
+                  className="mt-8 inline-block bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-4 px-10 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                >
+                  Learn More
+                </a>
               </div>
             </div>
           </div>
         </header>
 
-        {/* Why Different Section */}
-        <section id="why-different" className="py-16 sm:py-20 md:py-24 bg-purple-950">
-          <div className="container mx-auto px-4 sm:px-6">
+        {/* Imagine This Section */}
+        <section className="py-20 sm:py-24 md:py-28 bg-purple-900 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1630513483761-5da2784dc6a8')] bg-center bg-cover opacity-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900 to-purple-900/90"></div>
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-16">Why This Feels Different From Any 'Leadership Event'</h2>
-              <div className="space-y-6 sm:space-y-8">
-                <div className="flex items-start gap-6 bg-purple-900/50 p-6 rounded-xl border border-purple-800">
-                  <Brain className="w-8 h-8 text-yellow-500 flex-shrink-0" />
-                  <p className="text-lg">Diagnose your blindspots with a brutally honest assessments</p>
+              <div className="text-center mb-16">
+                <div className="w-16 h-1 bg-yellow-500 mx-auto mb-6"></div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Imagine This…</h2>
+                <p className="text-lg text-purple-200">A transformative experience waiting for you</p>
+              </div>
+              <div className="space-y-8 sm:space-y-10">
+                <div className="bg-purple-950/60 p-8 rounded-xl border border-purple-700/50 shadow-lg backdrop-blur-sm transform transition-all hover:scale-[1.02]">
+                  <p className="text-lg leading-relaxed">You wake up to the skyline of Doha. You're not rushing to meetings. Instead, you're reflecting deeply… while floating on a private boat cruise discussing wealth structuring, scaling secrets, and exiting with legacy—alongside elite founders and global thinkers.</p>
                 </div>
-                <div className="flex items-start gap-6 bg-purple-900/50 p-6 rounded-xl border border-purple-800">
-                  <Rocket className="w-8 h-8 text-yellow-500 flex-shrink-0" />
-                  <p className="text-lg">Get prescribed and practical solutions, not theory</p>
-                </div>
-                <div className="flex items-start gap-6 bg-purple-900/50 p-6 rounded-xl border border-purple-800">
-                  <CheckCircle2 className="w-8 h-8 text-yellow-500 flex-shrink-0" />
-                  <p className="text-lg">Leave with clear answers and action plan</p>
+                <div className="bg-purple-950/60 p-8 rounded-xl border border-purple-700/50 shadow-lg backdrop-blur-sm transform transition-all hover:scale-[1.02]">
+                  <p className="text-lg leading-relaxed">You're building more than your business. You're building the next version of yourself.</p>
                 </div>
               </div>
-              <p className="mt-12 text-center text-lg text-yellow-500">All of these and more while escaping from the noise and rebooting for the greater journey ahead</p>
             </div>
           </div>
         </section>
 
-        {/* What's in it for you Section */}
-        <section id="benefits" className="py-24 bg-purple-900">
-          <div className="container mx-auto px-6">
-            <h2 className="text-4xl font-bold text-center mb-16">What is in it for you?</h2>
-            <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-              <div className="bg-purple-950/50 p-8 rounded-xl border border-purple-800">
-                <Users className="w-12 h-12 text-yellow-500 mb-6" />
-                <h3 className="text-2xl font-semibold mb-6">Networking Opportunities</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
-                    <span>Engage with influential CEOs and business leaders.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
-                    <span>Build strategic alliances that unlock global expansion.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
-                    <span>Participate in high-level discussions on industry trends.</span>
-                  </li>
-                </ul>
+        {/* Why Different Section */}
+        <section id="why-different" className="py-20 sm:py-24 md:py-28 bg-purple-950 relative">
+          <div className="absolute top-0 right-0 w-1/3 h-64 bg-yellow-500/10 rounded-bl-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-1/4 h-48 bg-purple-700/30 rounded-tr-full blur-3xl"></div>
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
+            <div className="max-w-3xl mx-auto">
+              <div className="text-center mb-16">
+                <div className="inline-block p-2 bg-purple-900/80 rounded-lg border border-purple-700/50 mb-6">
+                  <span className="text-2xl">🔥</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Why You Can't Afford to Miss This</h2>
+                <div className="w-16 h-1 bg-yellow-500 mx-auto mt-6"></div>
               </div>
-              <div className="bg-purple-950/50 p-8 rounded-xl border border-purple-800">
-                <Brain className="w-12 h-12 text-yellow-500 mb-6" />
-                <h3 className="text-2xl font-semibold mb-6">Expert Insights</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
-                    <span>Gain proven strategies for scaling businesses fast.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
-                    <span>Learn innovative leadership growth techniques from global experts.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
-                    <span>Receive personalized coaching from Dr. Stephen Akintayo and other top mentors.</span>
-                  </li>
-                </ul>
+              <div className="space-y-6 sm:space-y-8">
+                <div className="flex items-start gap-6 bg-purple-900/80 p-8 rounded-xl border border-purple-700/50 shadow-lg">
+                  <div className="flex-1">
+                    <p className="text-lg leading-relaxed">The real luxury? It's not the penthouse suite. It's clarity, connection, and a powerful mental reset with people who get it.</p>
+                  </div>
+                </div>
               </div>
-              <div className="bg-purple-950/50 p-8 rounded-xl border border-purple-800">
-                <Rocket className="w-12 h-12 text-yellow-500 mb-6" />
-                <h3 className="text-2xl font-semibold mb-6">Personal Growth & Innovation</h3>
+            </div>
+          </div>
+        </section>
+
+        {/* Where Growth Happens Section */}
+        <section id="benefits" className="py-24 sm:py-28 md:py-32 bg-purple-900 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2')] bg-center bg-cover opacity-5"></div>
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-20">
+              <div className="inline-block p-2 bg-purple-800/80 rounded-lg border border-purple-700/50 mb-6">
+                <span className="text-2xl">📍</span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl font-bold mb-6">Here's Where the Growth Happens</h2>
+              <p className="text-lg text-purple-200">Exclusive experiences designed to transform your perspective</p>
+              <div className="w-16 h-1 bg-yellow-500 mx-auto mt-8"></div>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+              <div className="bg-purple-950/60 p-8 rounded-xl border border-purple-700/50 shadow-lg backdrop-blur-sm transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="inline-block p-3 bg-yellow-500/20 rounded-lg border border-yellow-500/30 mb-6">
+                  <span className="text-xl">🚤</span>
+                </div>
+                <h3 className="text-2xl font-semibold mb-6">Private Boat Cruise with Boardroom Conversations</h3>
+                <p className="mb-6 text-purple-200">Enjoy the Persian Gulf breeze while diving into honest discussions on:</p>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
-                    <span>Engage in leadership development activities that enhance creativity.</span>
+                    <span>Scaling sustainably</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
-                    <span>Participate in interactive sessions focused on strategic problem-solving.</span>
+                    <span>High-ticket sales frameworks</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
-                    <span>Enhance your ability to navigate dynamic business landscapes.</span>
+                    <span>Investing with intelligence</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <span>Building legacy over hustle</span>
                   </li>
                 </ul>
+                <p className="mt-6 text-yellow-500 font-medium">You won't find these convos on Clubhouse.</p>
+              </div>
+              
+              <div className="bg-purple-950/60 p-8 rounded-xl border border-purple-700/50 shadow-lg backdrop-blur-sm transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="inline-block p-3 bg-yellow-500/20 rounded-lg border border-yellow-500/30 mb-6">
+                  <span className="text-xl">🌆</span>
+                </div>
+                <h3 className="text-2xl font-semibold mb-6">Msheireb Downtown Doha</h3>
+                <p className="mb-6 text-purple-200">Explore the world's first smart, sustainable downtown while uncovering:</p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <span>Innovation-driven real estate insights</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <span>Smart city investing strategies</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <span>Business trends redefining modern infrastructure</span>
+                  </li>
+                </ul>
+                <p className="mt-6 text-yellow-500 font-medium">This isn't just a tour — it's an MBA on the move.</p>
+              </div>
+              
+              <div className="bg-purple-950/60 p-8 rounded-xl border border-purple-700/50 shadow-lg backdrop-blur-sm transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="inline-block p-3 bg-yellow-500/20 rounded-lg border border-yellow-500/30 mb-6">
+                  <span className="text-xl">🏎️</span>
+                </div>
+                <h3 className="text-2xl font-semibold mb-6">Lusail Circuit – Where Speed Meets Strategy</h3>
+                <p className="mb-6 text-purple-200">At the home of Formula 1 Qatar, reflect on:</p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <span>The power of precision in decision-making</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <span>Moving fast without burning out</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <span>Building systems for scalable speed</span>
+                  </li>
+                </ul>
+                <p className="mt-6 text-yellow-500 font-medium">Because business is a race — and strategy is your fuel.</p>
+              </div>
+              
+              <div className="bg-purple-950/60 p-8 rounded-xl border border-purple-700/50 shadow-lg backdrop-blur-sm transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="inline-block p-3 bg-yellow-500/20 rounded-lg border border-yellow-500/30 mb-6">
+                  <span className="text-xl">🏛️</span>
+                </div>
+                <h3 className="text-2xl font-semibold mb-6">Katara Cultural Village</h3>
+                <p className="mb-6 text-purple-200">Among artistry and creativity, you'll discover:</p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <span>Brand storytelling like never before</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <span>Emotional resonance as a marketing strategy</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <span>Building culture around your business</span>
+                  </li>
+                </ul>
+                <p className="mt-6 text-yellow-500 font-medium">Because great businesses don't just sell — they inspire.</p>
+              </div>
+              
+              <div className="bg-purple-950/60 p-8 rounded-xl border border-purple-700/50 shadow-lg backdrop-blur-sm transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1 md:col-span-2">
+                <div className="inline-block p-3 bg-yellow-500/20 rounded-lg border border-yellow-500/30 mb-6">
+                  <span className="text-xl">🛍️</span>
+                </div>
+                <h3 className="text-2xl font-semibold mb-6">Doha's Luxury Shopping Districts</h3>
+                <p className="mb-6 text-purple-200">Explore markets and malls as case studies in:</p>
+                <ul className="space-y-4 md:grid md:grid-cols-3 md:gap-6 md:space-y-0">
+                  <li className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <span>Luxury pricing psychology</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <span>Customer experience excellence</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Star className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                    <span>Creating desire around your offer</span>
+                  </li>
+                </ul>
+                <p className="mt-6 text-yellow-500 font-medium">This is market research — the high-ticket way.</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Meet Your Host Section */}
-        <section id="host" className="py-16 sm:py-20 md:py-24 bg-purple-950">
-          <div className="container mx-auto px-4 sm:px-6">
+        <section id="host" className="py-20 sm:py-24 md:py-28 bg-purple-950 relative">
+          <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-purple-900/30 to-transparent"></div>
+          <div className="absolute bottom-0 right-0 w-1/3 h-64 bg-yellow-500/5 rounded-tl-full blur-3xl"></div>
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-16">Meet Your Host</h2>
-              <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-                <div className="rounded-xl overflow-hidden shadow-2xl border-2 border-yellow-500 max-w-sm mx-auto md:max-w-none">
+              <div className="text-center mb-16">
+                <div className="w-16 h-1 bg-yellow-500 mx-auto mb-6"></div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Meet Your Host</h2>
+                <p className="text-lg text-purple-200 max-w-2xl mx-auto">The visionary behind this transformative experience</p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-2 border-yellow-500 max-w-sm mx-auto md:max-w-none relative group">
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                   <img 
                     src="/images/CEO.png" 
                     alt="Dr. Stephen Akintayo" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="space-y-4 sm:space-y-6">
-                  <h3 className="text-2xl sm:text-3xl font-semibold text-yellow-500">Dr. Stephen Akintayo</h3>
-                  <p className="text-lg sm:text-xl font-light">Africa's Foremost Investment Coach</p>
-                  <div className="space-y-3 sm:space-y-4 text-base sm:text-lg">
+                <div className="space-y-6 sm:space-y-8">
+                  <h3 className="text-3xl sm:text-4xl font-bold text-yellow-500">Dr. Stephen Akintayo</h3>
+                  <p className="text-xl sm:text-2xl font-light text-purple-200">Africa's Foremost Investment Coach</p>
+                  <div className="space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed">
                     <p>Dr. Stephen Akintayo is a distinguished investment strategist, business expansion specialist, and leadership mentor who has helped countless executives scale their businesses across global markets.</p>
                     <p>With his 10-Figure Dollar Empire Strategy, he has transformed struggling businesses into thriving enterprises and guided CEOs through complex market expansions.</p>
                     <p>As the curator of the Doha Leadership Retreat, Dr. Akintayo brings together his vast experience, powerful network, and practical frameworks to create a transformative experience for visionary leaders.</p>
                   </div>
-                  <div className="pt-4">
+                  <div className="pt-6">
                     <button 
-                      className="bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-3 px-8 rounded-full transition-all"
+                      className="bg-yellow-500 hover:bg-yellow-600 text-purple-950 font-bold py-4 px-10 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center"
                       onClick={toggleHostInfo}
                     >
-                      Learn More About Your Host
+                      <span>Learn More About Your Host</span>
+                      <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                     </button>
                   </div>
                 </div>
@@ -222,16 +356,17 @@ function App() {
 
         {/* Host Information Popup */}
         {showHostInfo && (
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
-            <div className="bg-purple-950 rounded-xl w-full max-w-4xl mx-auto p-4 sm:p-6 md:p-8 relative border border-yellow-500 shadow-2xl max-h-[90vh] overflow-y-auto">
+          <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+            <div className="bg-purple-950 rounded-xl w-full max-w-4xl mx-auto p-6 sm:p-8 md:p-10 relative border border-yellow-500 shadow-2xl max-h-[90vh] overflow-y-auto">
               <button 
-                className="absolute top-2 sm:top-4 right-2 sm:right-4 text-white hover:text-yellow-500 transition p-1"
+                className="absolute top-4 sm:top-6 right-4 sm:right-6 text-white hover:text-yellow-500 transition p-2 bg-purple-900/50 rounded-full hover:bg-purple-900 group"
                 onClick={toggleHostInfo}
+                aria-label="Close"
               >
-                <X className="w-5 h-5 sm:w-6 sm:h-6" />
+                <X className="w-6 h-6 group-hover:scale-110 transition-transform" />
               </button>
               
-              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start pt-6 md:pt-0">
+              <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start pt-8 md:pt-2">
                 <div className="md:w-1/3 flex-shrink-0 max-w-[200px] sm:max-w-none mx-auto md:mx-0">
                   <div className="rounded-xl overflow-hidden shadow-lg border-2 border-yellow-500">
                     <img 
@@ -243,10 +378,10 @@ function App() {
                 </div>
                 
                 <div className="md:w-2/3">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-yellow-500 mb-2 sm:mb-4">Dr. Stephen Akintayo</h3>
-                  <p className="text-lg sm:text-xl text-white/90 mb-4 sm:mb-6">Africa's Foremost Investment Coach</p>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-yellow-500 mb-3 sm:mb-4">Dr. Stephen Akintayo</h3>
+                  <p className="text-lg sm:text-xl text-white/90 mb-6 sm:mb-8">Africa's Foremost Investment Coach</p>
                   
-                  <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-white/80">
+                  <div className="space-y-4 sm:space-y-6 text-sm sm:text-base text-white/80">
                     <p>Dr. Stephen Akintayo is a Nigerian serial entrepreneur, philanthropist, and media personality known as Africa's most influential investment coach. Born on 28 January 1986 in Maiduguri, Borno State, his early life was marked by financial hardship and limited resources, which instilled in him a relentless drive to overcome adversity and give back to his community.</p>
                     
                     <p>Educated at Baptist Primary School in Maiduguri and Government Secondary School in Jebba, Kwara State, he later earned a B.Sc in Microbiology from Olabisi Onabanjo University in 2010. Determined to expand his leadership and management skills, he also pursued further training at prestigious institutions like Harvard University and The Coaching Academy, UK.</p>
@@ -265,40 +400,98 @@ function App() {
           </div>
         )}
 
-        {/* What You'll Learn Section */}
+        {/* This Investment Will Leave You With Section */}
         <section id="learn" className="py-16 sm:py-20 md:py-24 bg-purple-950">
           <div className="container mx-auto px-4 sm:px-6">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-16">WHAT YOU ARE GOING TO LEARN</h2>
-            <div className="space-y-8 sm:space-y-12 md:space-y-16 max-w-4xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-16">This Investment Will Leave You With:</h2>
+            <div className="space-y-8 sm:space-y-12 md:space-y-10 max-w-4xl mx-auto">
               <div className="bg-purple-900/50 p-6 sm:p-8 rounded-xl border border-purple-800">
-                <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-yellow-500">Business Expansion and Diversification</h3>
-                <div className="space-y-4 sm:space-y-6 text-base sm:text-lg">
-                  <p>Building and maintaining positive relationships with government entities is crucial for businesses looking to expand into new markets or navigate complex regulatory environments. This retreat offers practical strategies for cultivating fruitful relationships with government entities, unlocking new opportunities, and ensuring compliance with regulatory requirements</p>
-                  <p>Our experts will guide you through the process of expanding into new businesses or markets globally with confidence. From identifying lucrative opportunities to executing successful expansion strategies, you'll gain the insights and strategies needed to navigate this critical phase of growth</p>
-                </div>
+                <ul className="space-y-4 text-lg">
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0" />
+                    <span>A deep exhale you didn't know you needed</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0" />
+                    <span>The clarity to see your next move</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0" />
+                    <span>A renewed hunger to build with peace, not pressure</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0" />
+                    <span>Feeling seen, understood, and sharpened by peers who've walked your path</span>
+                  </li>
+                </ul>
               </div>
+              
+              <p className="text-lg text-center">You've spent thousands attending conferences that gave you slides.<br />Now, spend a few days investing in perspective that gives you breakthroughs.</p>
+              
               <div className="bg-purple-900/50 p-6 sm:p-8 rounded-xl border border-purple-800">
-                <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-yellow-500">Investment Decision-making</h3>
-                <p className="text-base sm:text-lg">Navigating investment options can be daunting. Our retreat will equip you with the tools and knowledge to make strategic investment choices that align with your company's goals and ensure optimal returns.</p>
+                <p className="text-lg mb-4">One idea, one relationship, one renewed insight from this retreat could:</p>
+                <ul className="space-y-4 text-lg">
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0" />
+                    <span>Open doors to global expansion</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0" />
+                    <span>Revive your stagnant offers</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0" />
+                    <span>Replace stress with strategy</span>
+                  </li>
+                </ul>
               </div>
-              <div className="bg-purple-900/50 p-6 sm:p-8 rounded-xl border border-purple-800">
-                <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-yellow-500">Customer Acquisition Cost</h3>
-                <p className="text-base sm:text-lg">Rising customer acquisition costs can erode profit margins and strain resources. At the CEO Leadership Retreat, we delve into cost-effective customer acquisition strategies, leveraging data-driven insights and innovative marketing techniques to maximize ROI and drive business growth</p>
+            </div>
+          </div>
+        </section>
+        
+        {/* Who This Is For Section */}
+        <section className="py-16 sm:py-20 bg-purple-900">
+          <div className="container mx-auto px-4 sm:px-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-16">🎯 Who This Is For</h2>
+            <div className="max-w-3xl mx-auto">
+              <div className="space-y-4 text-lg text-center">
+                <p className="flex items-center gap-3 justify-center">
+                  <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0" />
+                  <span>CEOs & Founders who are scaling past 7-figures</span>
+                </p>
+                <p className="flex items-center gap-3 justify-center">
+                  <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0" />
+                  <span>Professionals ready to break the burnout cycle</span>
+                </p>
+                <p className="flex items-center gap-3 justify-center">
+                  <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0" />
+                  <span>Thought leaders craving a deeper level of growth</span>
+                </p>
+                <p className="flex items-center gap-3 justify-center">
+                  <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0" />
+                  <span>Investors, coaches, and visionaries seeking clarity, connection & strategy</span>
+                </p>
               </div>
-              <div className="bg-purple-900/50 p-6 sm:p-8 rounded-xl border border-purple-800">
-                <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-yellow-500">Market Differentiation</h3>
-                <p className="text-base sm:text-lg">Our expert-led sessions will provide actionable strategies to help you stand out in competitive markets. You'll learn how to carve your niche, differentiate your brand, and drive sustainable growth by leveraging your unique strengths and value propositions</p>
+              
+              <div className="mt-12 text-center">
+                <h3 className="text-2xl font-bold mb-4">Don't Just Escape. Evolve.</h3>
+                <p className="text-lg mb-6">There's a version of you the world hasn't seen—<br />Calm. Confident. Crystal clear.</p>
+                <p className="text-xl font-semibold text-yellow-500">Join us in Doha.<br />Let's meet that version of you.</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Investment Section */}
-        <section id="investment" className="py-16 sm:py-20 md:py-24 bg-purple-900">
+        <section id="investment" className="py-16 sm:py-20 md:py-24 bg-purple-950">
           <div className="container mx-auto px-4 sm:px-6">
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-16">Investment</h2>
             <div className="max-w-4xl mx-auto">
-              <div className="bg-purple-950/50 p-6 sm:p-8 rounded-xl border border-purple-800">
+              <div className="bg-purple-900/50 p-6 sm:p-8 rounded-xl border border-purple-800 mb-10">
+                <p className="text-lg text-center mb-8">If you had the opportunity to invest in yourself, go on a vacation, take a productive break from the daily bustle, and immerse yourself in a room filled with global business leaders, while gaining access to my 10-Figure Dollar Empire Strategy, how much do you think that would be worth?</p>
+                <p className="text-lg text-center mb-8">Surely, $5,000 wouldn't be too much for such a life-changing experience.</p>
+                <p className="text-lg text-center mb-8">But here's the good news... you won't even pay half of that!</p>
+                
                 <div className="flex flex-col items-center mb-8">
                   <h3 className="text-2xl sm:text-3xl font-semibold text-yellow-500 mb-4">Choose Your Currency</h3>
                   <div className="flex gap-4">
@@ -316,12 +509,12 @@ function App() {
                     </button>
                   </div>
                 </div>
-
+                
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="flex flex-col items-center p-6 bg-purple-900/50 rounded-xl border border-yellow-500">
                     <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Early Bird Package</h4>
                     <div className="text-3xl sm:text-4xl font-bold mb-2">
-                      {showUSD ? '$15,000' : '₦22,500,000'}
+                      {showUSD ? '$1,500' : '₦2,250,000'}
                     </div>
                     <p className="text-sm text-white/80 mb-6">
                       Individual
@@ -365,7 +558,7 @@ function App() {
                   <div className="flex flex-col items-center p-6 bg-purple-900/50 rounded-xl border border-yellow-500">
                     <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Early Bird Couple Package</h4>
                     <div className="text-3xl sm:text-4xl font-bold mb-2">
-                      {showUSD ? '$25,000' : '₦37,500,000'}
+                      {showUSD ? '$2,500' : '₦3,750,000'}
                     </div>
                     <p className="text-sm text-white/80 mb-6">
                       For Couples
@@ -405,11 +598,11 @@ function App() {
                       Reserve Your Spot
                     </a>
                   </div>
-
+                  
                   <div className="flex flex-col items-center p-6 bg-purple-900/50 rounded-xl border border-yellow-500">
-                    <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Late Bird Package</h4>
+                    <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Regular Package</h4>
                     <div className="text-3xl sm:text-4xl font-bold mb-2">
-                      {showUSD ? '$20,000' : '₦30,000,000'}
+                      {showUSD ? '$2,000' : '₦3,000,000'}
                     </div>
                     <p className="text-sm text-white/80 mb-6">
                       Individual
@@ -451,9 +644,9 @@ function App() {
                   </div>
 
                   <div className="flex flex-col items-center p-6 bg-purple-900/50 rounded-xl border border-yellow-500">
-                    <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Late Bird Couple Package</h4>
+                    <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Regular Couple Package</h4>
                     <div className="text-3xl sm:text-4xl font-bold mb-2">
-                      {showUSD ? '$30,000' : '₦45,000,000'}
+                      {showUSD ? '$3,000' : '₦4,500,000'}
                     </div>
                     <p className="text-sm text-white/80 mb-6">
                       For Couples
@@ -493,12 +686,16 @@ function App() {
                       Reserve Your Spot
                     </a>
                   </div>
-
-                  {/* <div className="text-center text-white/80 md:col-span-2 mt-6 p-4 bg-purple-800/50 rounded-lg border border-purple-700">
-                    <p className="font-semibold text-yellow-500 mb-2">All packages include:</p>
-                    <p>Hotel Accommodation, Food, Conference Attendance, Tour of Doha, Visa Assistance, and Training Materials.</p>
-                  </div> */}
                 </div>
+                
+                <p className="text-lg text-center mt-8 mb-8">So, I'll advise that you stop whatever you're doing and register now to guarantee your place and enjoy this exclusive offer before it disappears!</p>
+                <p className="text-lg text-center mb-8">Thousands of people see this everyday and in no time, the spots will be filled up</p>
+              </div>
+              
+              <div className="bg-purple-900/50 p-6 sm:p-8 rounded-xl border border-purple-800">
+                <h3 className="text-2xl font-bold text-center mb-8">Too busy to take 5 days off?</h3>
+                <p className="text-lg text-center mb-10">This is exactly why you should be the first person at this retreat because you need the lessons to build a structure that operates independently of you</p>
+                <p className="text-lg text-center font-semibold">So now, you have nothing holding you back</p>
               </div>
             </div>
           </div>
@@ -592,15 +789,15 @@ function App() {
                   <p className="font-semibold mb-4 text-xl">Option C:</p>
                   <p className="text-lg mb-4">Spend June 12th-17th in Doha with Africa's most influential CEOs. Return with:</p>
                   <ul className="space-y-3 pl-6">
-                    <li className="flex items-center gap-3">
+                    <li className="flex items-center gap-2">
                       <CheckCircle2 className="w-5 h-5 text-yellow-500 flex-shrink-0" />
                       <span>A failsafe plan to expand into new markets by 2025</span>
                     </li>
-                    <li className="flex items-center gap-3">
+                    <li className="flex items-center gap-2">
                       <CheckCircle2 className="w-5 h-5 text-yellow-500 flex-shrink-0" />
                       <span>3 or more new board-level contacts</span>
                     </li>
-                    <li className="flex items-center gap-3">
+                    <li className="flex items-center gap-2">
                       <CheckCircle2 className="w-5 h-5 text-yellow-500 flex-shrink-0" />
                       <span>The clarity to lead without second-guessing</span>
                     </li>
