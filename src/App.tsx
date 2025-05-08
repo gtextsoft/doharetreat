@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Users, Brain, Rocket, Star, CheckCircle2, Menu, X } from 'lucide-react';
+import { Calendar, MapPin, Star, CheckCircle2, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 function App() {
