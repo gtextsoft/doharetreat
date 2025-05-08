@@ -691,12 +691,6 @@ function App() {
                 <p className="text-lg text-center mt-8 mb-8">So, I'll advise that you stop whatever you're doing and register now to guarantee your place and enjoy this exclusive offer before it disappears!</p>
                 <p className="text-lg text-center mb-8">Thousands of people see this everyday and in no time, the spots will be filled up</p>
               </div>
-              
-              <div className="bg-purple-900/50 p-6 sm:p-8 rounded-xl border border-purple-800">
-                <h3 className="text-2xl font-bold text-center mb-8">Too busy to take 5 days off?</h3>
-                <p className="text-lg text-center mb-10">This is exactly why you should be the first person at this retreat because you need the lessons to build a structure that operates independently of you</p>
-                <p className="text-lg text-center font-semibold">So now, you have nothing holding you back</p>
-              </div>
             </div>
           </div>
         </section>
@@ -783,7 +777,7 @@ function App() {
                 </div>
                 <div className="bg-purple-900/50 p-8 rounded-xl border border-purple-800">
                   <p className="font-semibold mb-4 text-xl">Option B:</p>
-                  <p className="text-lg">Decide to register later only to see that the special offer has ended and you'd have to pay $20,000 instead of the early bird rate</p>
+                  <p className="text-lg">Decide to register later only to see that the special offer has ended and you'd have to pay $2,000 instead of the early bird rate</p>
                 </div>
                 <div className="bg-purple-900/50 p-8 rounded-xl border border-purple-800">
                   <p className="font-semibold mb-4 text-xl">Option C:</p>
