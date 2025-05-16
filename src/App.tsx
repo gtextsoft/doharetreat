@@ -39,7 +39,7 @@ function App() {
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center py-4">
             <a href="#home" className="text-xl font-bold text-yellow-500 flex items-center">
-              <span className="text-2xl tracking-tighter">Doha Leadership Retreat</span>
+              <img src="/images/logo.png" alt="Stephen Akintayo Logo" className="w-30 h-10" />
             </a>
             
             {/* Mobile menu button */}
