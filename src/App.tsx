@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showHostInfo, setShowHostInfo] = useState(false);
-  const [showUSD, setShowUSD] = useState(true);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -492,29 +491,12 @@ function App() {
                 <p className="text-lg text-center mb-8">Surely, $5,000 wouldn't be too much for such a life-changing experience.</p>
                 <p className="text-lg text-center mb-8">But here's the good news... you won't even pay half of that!</p>
                 
-                <div className="flex flex-col items-center mb-8">
-                  <h3 className="text-2xl sm:text-3xl font-semibold text-yellow-500 mb-4">Choose Your Currency</h3>
-                  <div className="flex gap-4">
-                    <button 
-                      className={`px-6 py-2 rounded-full font-semibold transition-all ${showUSD ? 'bg-yellow-500 text-purple-900' : 'bg-purple-800 text-white'}`}
-                      onClick={() => setShowUSD(true)}
-                    >
-                      USD
-                    </button>
-                    <button 
-                      className={`px-6 py-2 rounded-full font-semibold transition-all ${!showUSD ? 'bg-yellow-500 text-purple-900' : 'bg-purple-800 text-white'}`}
-                      onClick={() => setShowUSD(false)}
-                    >
-                      NGN
-                    </button>
-                  </div>
-                </div>
                 {/* Payment Options */}
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="flex flex-col items-center p-6 bg-purple-900/50 rounded-xl border border-yellow-500">
                     <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Doha Sales Retreat (Option 1)</h4>
                     <div className="text-3xl sm:text-4xl font-bold mb-2">
-                      {showUSD ? '$2,500' : '₦4,000,000'}
+                      ₦4,000,000
                     </div>
                     <p className="text-sm text-white/80 mb-6">
                       Shared Room
@@ -550,7 +532,7 @@ function App() {
                       </li>
                     </ul>
                     <a 
-                      href={showUSD ? "https://pay.gtextglobal.com/doha-retreat/" : "https://paystack.com/pay/nx-zy2mr4a"} 
+                      href="https://paystack.com/pay/nx-zy2mr4a" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-3 px-8 rounded-full transition-all inline-block text-center"
@@ -562,7 +544,7 @@ function App() {
                   <div className="flex flex-col items-center p-6 bg-purple-900/50 rounded-xl border border-yellow-500">
                     <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Doha Sales Retreat (Option 2)</h4>
                     <div className="text-3xl sm:text-4xl font-bold mb-2">
-                      {showUSD ? '$2815.00' : '₦4,500,000'}
+                      ₦4,500,000
                     </div>
                     <p className="text-sm text-white/80 mb-6">
                       Shared Apartment
@@ -598,7 +580,7 @@ function App() {
                       </li>
                     </ul>
                     <a 
-                      href={showUSD ? "https://pay.gtextglobal.com/doha-retreat/" : "https://paystack.com/pay/p3a619rhoh"} 
+                      href="https://paystack.com/pay/p3a619rhoh" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-3 px-8 rounded-full transition-all inline-block text-center"
@@ -610,7 +592,7 @@ function App() {
                   <div className="flex flex-col items-center p-6 bg-purple-900/50 rounded-xl border border-yellow-500">
                     <h4 className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4">Doha Sales Retreat (Option 3)</h4>
                     <div className="text-3xl sm:text-4xl font-bold mb-2">
-                      {showUSD ? '$3440.00' : '₦5,500,000'}
+                      ₦5,500,000
                     </div>
                     <p className="text-sm text-white/80 mb-6">
                       Studio Apartment
@@ -646,7 +628,7 @@ function App() {
                       </li>
                     </ul>
                     <a 
-                      href={showUSD ? "https://pay.gtextglobal.com/doha-retreat/" : "https://paystack.com/pay/y6zzcm-1g8"} 
+                      href="https://paystack.com/pay/y6zzcm-1g8" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-3 px-8 rounded-full transition-all inline-block text-center"
@@ -793,7 +775,7 @@ function App() {
               </div>
               <button className="bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-6 px-12 rounded-full text-xl transition-all mb-12 transform hover:scale-105">
                 <a 
-                  href={showUSD ? "https://pay.gtextglobal.com/doha-retreat/" : "https://paystack.com/pay/nx-zy2mr4a"} 
+                  href="https://paystack.com/pay/nx-zy2mr4a" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="block"
@@ -812,59 +794,95 @@ function App() {
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-16">Past Retreats</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 max-w-6xl mx-auto">
               {/* Actual images */}
-              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
-                <img src="/images/Past 1.jpg" alt="Past Retreat 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg group relative">
+                <img src="/images/Past 1.jpg" alt="Past Retreat 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 hover:brightness-110" />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">Nigerian CEO Retreat 2024</p>
+                </div>
               </div>
-              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg group relative">
                 <img src="/images/Past 2.jpg" alt="Past Retreat 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">Nigerian CEO Retreat 2024</p>
+                </div>
               </div>
-              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg group relative">
                 <img src="/images/Past 3.jpg" alt="Past Retreat 3" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">Nigerian CEO Retreat 2024</p>
+                </div>
               </div>
-              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg group relative">
                 <img src="/images/Past 4.jpg" alt="Past Retreat 4" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">Nigerian CEO Retreat 2024</p>
+                </div>
               </div>
-              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg group relative">
                 <img src="/images/Past 5.jpg" alt="Past Retreat 5" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">Nigerian CEO Retreat 2024</p>
+                </div>
               </div>
-              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg group relative">
                 <img src="/images/BALADNA 5.jpg" alt="Past Retreat 6" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">Doha Retreat 2025</p>
+                </div>
               </div>
-              {/* doha  past retreat images */}
-              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg group relative">
                 <img src="/images/IMG_3215.jpg" alt="Past Retreat 7" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">Doha Retreat 2025</p>
+                </div>
               </div>
-              
-              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg group relative">
                 <img src="/images/Dr Ds.jpg" alt="Past Retreat 8" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">Doha Retreat 2025</p>
+                </div>
               </div>
-
-              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg group relative">
                 <img src="/images/BALADNA 4.jpg" alt="Past Retreat 9" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">Doha BALADNA</p>
+                </div>
               </div>
-
-              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg group relative">
                 <img src="/images/BALA VIP.jpg" alt="Past Retreat 10" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">DOHA BALADNA</p>
+                </div>
               </div>
-
-              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg group relative">
                 <img src="/images/DOHA LUSAIL.jpg" alt="Past Retreat 11" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">DOHA LUSAIL</p>
+                </div>
               </div>
-
-              <div className="aspect-square rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-square rounded-lg overflow-hidden shadow-lg group relative">
                 <img src="/images/DOHA GENERAL PICS.jpg" alt="Past Retreat 12" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">DOHA GENERAL PICS</p>
+                </div>
               </div>
-
-              <div className='aspect-square rounded-lg overflow-hidden shadow-lg'>
+              <div className='aspect-square rounded-lg overflow-hidden shadow-lg group relative'>
                 <img src="/images/IMG_0562.jpg" alt="13" className='w-full h-full object-cover hover:scale-105 transition-transform duration-300' />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">DOHA</p>
+                </div>
               </div>
-
-              <div className='aspect-square rounded-lg overflow-hidden shadow-lg'>
+              <div className='aspect-square rounded-lg overflow-hidden shadow-lg group relative'>
                 <img src="/images/DOHA SIT.jpg" alt="14" className='w-full h-full object-cover hover:scale-105 transition-transform duration-300' />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">DOHA</p>
+                </div>
               </div>
-
-              <div className='aspect-square rounded-lg overflow-hidden shadow-lg'>
+              <div className='aspect-square rounded-lg overflow-hidden shadow-lg group relative'>
                 <img src="/images/IMG_2585.jpg" alt="15" className='w-full h-full object-cover hover:scale-105 transition-transform duration-300' />
+                <div className="absolute inset-0 bg-black/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-center px-4">BALADNA</p>
+                </div>
               </div>
             </div>
             <p className="text-center mt-12 text-lg">Join the legacy of transformation at our next retreat in Doha</p>
